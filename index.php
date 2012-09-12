@@ -21,7 +21,7 @@ const TOKEN_ENDPOINT = 'https://api.singly.com/oauth/access_token';
 $client = new OAuth2\Client(CLIENT_ID, CLIENT_SECRET);
 
 if (!isset($_GET['code'])) {
-   $auth_url = $client->getAuthenticationUrl(AUTHORIZATION_ENDPOINT, REDIRECT_URI) ."&service=". $SERVICE;
+   $auth_url = $client->getAuthenticationUrl(AUTHORIZATION_ENDPOINT, REDIRECT_URI) ."&service=". SERVICE;
 
    header('Location: '. $auth_url);
 
