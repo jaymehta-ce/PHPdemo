@@ -1,4 +1,4 @@
-<?
+<?php
 require('lib/PHP-OAuth2/Client.php');
 
 require('lib/PHP-OAuth2/GrantType/IGrantType.php');
@@ -37,3 +37,4 @@ if (!isset($_GET['code'])) {
    // From here on you can access Singly API URLs using $client->fetch
    $response = $client->fetch('https://api.singly.com/profiles');
 }
+?>
