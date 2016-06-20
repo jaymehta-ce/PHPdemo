@@ -8,37 +8,6 @@ var $stateProviderRef = null;
 
 
 var myApp = angular.module('myApp', ['ui.router']);
-var Language = [];
-
-Language.push({
-    name: "US", value: [
-                { "name": "MasterPageTemplate", "value": "https://cdn.contentful.com/spaces/87loyxvyy7e8/entries/PbJoXpWd2KEeQuC6YE0iS?access_token=552c7353bf5fa69059c37ef028908a4d331f790c5e074676e302a01ed3abb9aa" },
-                { "name": "CssTemplate", "value": "https://cdn.contentful.com/spaces/8qulg98piw8g/entries/27Ew1MUFpyCcu6uiuO2SiG?access_token=71e4b1a9712dd91d2d905aef1e27d6afe6028d0018346ee2ed43ea3a61b96460" },
-                { "name": "loadCss", "value": "https://cdn.contentful.com/spaces/8qulg98piw8g/assets/1aWtrgtYNgI0mS0GUQoOaM?access_token=71e4b1a9712dd91d2d905aef1e27d6afe6028d0018346ee2ed43ea3a61b96460" },
-                { "name": "HeaderLogo", "value": "https://cdn.contentful.com/spaces/8qulg98piw8g/assets/5MMZJezmA8SoWK2uKEIAO?access_token=71e4b1a9712dd91d2d905aef1e27d6afe6028d0018346ee2ed43ea3a61b96460" },
-                { "name": "MenuList", "value": "https://cdn.contentful.com/spaces/8qulg98piw8g/entries/3Fje8VZWoE8CeGuk4ksYWS?access_token=71e4b1a9712dd91d2d905aef1e27d6afe6028d0018346ee2ed43ea3a61b96460" },
-                { "name": "ContentImage", "value": "https://cdn.contentful.com/spaces/8qulg98piw8g/assets/3xxzvCwjEIeE2WAkyCwsQY?access_token=71e4b1a9712dd91d2d905aef1e27d6afe6028d0018346ee2ed43ea3a61b96460" },
-                { "name": "HeaderTemplate", "value": "https://cdn.contentful.com/spaces/87loyxvyy7e8/entries/2v9jKdUqcw0UkgIkA0u6aw?access_token=552c7353bf5fa69059c37ef028908a4d331f790c5e074676e302a01ed3abb9aa" },
-                { "name": "AboutTemplate", "value": "https://cdn.contentful.com/spaces/87loyxvyy7e8/entries/7L72PvYJfGiYqSa2MeM0i6?access_token=552c7353bf5fa69059c37ef028908a4d331f790c5e074676e302a01ed3abb9aa" },
-                { "name": "ContactTemplate", "value": "https://cdn.contentful.com/spaces/8qulg98piw8g/entries/5r3qTaYOjuQaKKa22s2o0U?access_token=71e4b1a9712dd91d2d905aef1e27d6afe6028d0018346ee2ed43ea3a61b96460" },
-                { "name": "FooterTemplate", "value": "https://cdn.contentful.com/spaces/87loyxvyy7e8/entries/1wBHddCEtu8eGU4YUMCm6E?access_token=552c7353bf5fa69059c37ef028908a4d331f790c5e074676e302a01ed3abb9aa" },
-                { "name": "HomeTemplate", "value": "https://cdn.contentful.com/spaces/87loyxvyy7e8/entries/6PZRV830IMeA4q2ce0k2ms?access_token=552c7353bf5fa69059c37ef028908a4d331f790c5e074676e302a01ed3abb9aa" }
-    ]
-});
-
-Language.push({
-    name: "FR", value: [
-                { "name": "MasterPageTemplate", "value": "https://cdn.contentful.com/spaces/8qulg98piw8g/entries/4kFE9vkYcwayiKsAy88qk4?access_token=71e4b1a9712dd91d2d905aef1e27d6afe6028d0018346ee2ed43ea3a61b96460" },
-                { "name": "CssTemplate", "value": "https://cdn.contentful.com/spaces/8qulg98piw8g/entries/27Ew1MUFpyCcu6uiuO2SiG?access_token=71e4b1a9712dd91d2d905aef1e27d6afe6028d0018346ee2ed43ea3a61b96460" },
-                { "name": "loadCss", "value": "https://cdn.contentful.com/spaces/8qulg98piw8g/assets/1aWtrgtYNgI0mS0GUQoOaM?access_token=71e4b1a9712dd91d2d905aef1e27d6afe6028d0018346ee2ed43ea3a61b96460" },
-                { "name": "HeaderLogo", "value": "https://cdn.contentful.com/spaces/8qulg98piw8g/assets/5MMZJezmA8SoWK2uKEIAO?access_token=71e4b1a9712dd91d2d905aef1e27d6afe6028d0018346ee2ed43ea3a61b96460" },
-                { "name": "MenuList", "value": "https://cdn.contentful.com/spaces/8qulg98piw8g/entries/3Fje8VZWoE8CeGuk4ksYWS?access_token=71e4b1a9712dd91d2d905aef1e27d6afe6028d0018346ee2ed43ea3a61b96460" },
-                { "name": "ContentImage", "value": "https://cdn.contentful.com/spaces/8qulg98piw8g/assets/3xxzvCwjEIeE2WAkyCwsQY?access_token=71e4b1a9712dd91d2d905aef1e27d6afe6028d0018346ee2ed43ea3a61b96460" },
-                { "name": "HeaderTemplate", "value": "https://cdn.contentful.com/spaces/87loyxvyy7e8/entries/2v9jKdUqcw0UkgIkA0u6aw?access_token=552c7353bf5fa69059c37ef028908a4d331f790c5e074676e302a01ed3abb9aa" },
-                { "name": "AboutTemplate", "value": "https://cdn.contentful.com/spaces/8qulg98piw8g/entries/2LZmpL4xtSCe6kkW0mMSeK?access_token=71e4b1a9712dd91d2d905aef1e27d6afe6028d0018346ee2ed43ea3a61b96460" },
-                { "name": "ContactTemplate", "value": "https://cdn.contentful.com/spaces/8qulg98piw8g/entries/nWeU1YggFM2IIqgKMAEMQ?access_token=71e4b1a9712dd91d2d905aef1e27d6afe6028d0018346ee2ed43ea3a61b96460" }
-    ]
-});
 
 myApp.constant("AllserviceLinks", itemArray);
 
