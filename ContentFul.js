@@ -7,12 +7,6 @@ var contentfulClient = contentful.createClient({
 var getallTemplate = 'template';
 var getallPageContent = 'contentPage';
 var itemArray = [];
-contentfulClient.getSpace('36t7ny03afhb')
-.then(function (space) {
-
-});
-
-
 
 contentfulClient.getEntries({
     content_type: getallTemplate
