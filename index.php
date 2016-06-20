@@ -1,59 +1,25 @@
-<?php
-require('lib/PHP-OAuth2/Client.php');
 
-require('lib/PHP-OAuth2/GrantType/IGrantType.php');
-require('lib/PHP-OAuth2/GrantType/AuthorizationCode.php');
+<script src="https://npmcdn.com/contentful@latest/browser-dist/contentful.min.js"></script>
 
-session_start();
+<script src="https://npmcdn.com/marked@0.3.5/marked.min.js"></script>
 
-// These are your Singly client ID and secret from here:
-// https://singly.com/apps
-const CLIENT_ID = '';
-const CLIENT_SECRET = '';
+<script src="ContentFul.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="https://assets.contentful.com/87loyxvyy7e8/1dYilv4IluE0wCEKcKMsKK/b4109543cddd04c68b04b8943e7e0453/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="https://assets.contentful.com/87loyxvyy7e8/2FVXvFoa7KGI8UEkAGUAc0/8b5e84184e29993118662d416e3548fb/bootstrap.min.css">
 
-// Set his is the URL of this file (http://yourdomain.com/index.php, for example)
-const REDIRECT_URI = '';
+<link rel="stylesheet" type="text/css" href="https://assets.contentful.com/87loyxvyy7e8/19fgDb2emU8KuyqyiwwYIi/f310d2f1499d6904c3796d0dc399909e/style.css">
 
-const AUTHORIZATION_ENDPOINT = 'https://api.singly.com/oauth/authenticate';
-const TOKEN_ENDPOINT = 'https://api.singly.com/oauth/access_token';
+<script data-require="angular.js@@*" data-semver="1.3.0-beta.5" src="https://code.angularjs.org/1.3.0-beta.5/angular.js"></script>
+<script src="angular.js"></script>
+<script data-require="ui-router@@*" data-semver="0.2.10" src="https://rawgit.com/angular-ui/ui-router/0.2.10/release/angular-ui-router.js"></script>
 
-$client = new OAuth2\Client(CLIENT_ID, CLIENT_SECRET);
 
-function getSinglyAuthenticationUrl($service, $client) {
-  $auth_url = $client->getAuthenticationUrl(AUTHORIZATION_ENDPOINT, REDIRECT_URI)
-    ."&service=". $service;
+<div ng-app="myApp" ng-controller="MyCtrl">
 
-  if (isset($_SESSION['access_token'])) {
-    $auth_url .= '&access_token=' . $_SESSION['access_token'];
-  }
-  return $auth_url;
-}
-if ($_GET['logout']) {
-  unset($_SESSION['access_token']);
-  echo 'Logged out';
 
-} elseif (!isset($_GET['code'])) {
-  $services = Array('facebook', 'twitter', 'github');
+    <data-master> </data-master>
 
-  echo '<h1>Add social profiles to your Singly account</h1>';
-  echo '<p><a href="/?logout=true">Clear your session</a> to create a new account</p>';
 
-  foreach ($services as $service) {
-    echo '<a href="' . getSinglyAuthenticationUrl($service, $client) . '">' . $service . "</a><br/>";
-  }
-
-} else {
-   $params = array('code' => $_GET['code'], 'redirect_uri' => REDIRECT_URI);
-
-   $response = $client->getAccessToken(TOKEN_ENDPOINT, 'authorization_code', $params);
-
-   $client->setAccessToken($response['result']['access_token']);
-   // You should also store this in the user's session
-   $_SESSION['access_token'] = $response['result']['access_token'];
-
-   // From here on you can access Singly API URLs using $client->fetch
-   $response = $client->fetch('https://api.singly.com/profiles');
-   print_r($response);
-   echo '<br>Go back to add another service.';
-}
-?>
+</div>
