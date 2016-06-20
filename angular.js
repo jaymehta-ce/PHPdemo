@@ -734,7 +734,7 @@ myApp.run(['$q', '$rootScope', '$state', '$http',
       var SetLanguage = [];
       SetLanguage.push({
           language: "US",
-          website: "localhost"
+          website: "phpcontentful.herokuapp.com"
       });
       SetLanguage.push({
           language: "FR",
