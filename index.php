@@ -1,7 +1,7 @@
 
-<script src="https://npmcdn.com/contentful@latest/browser-dist/contentful.min.js"></script>
+<script src="https://unpkg.com/contentful@latest/browser-dist/contentful.min.js"></script>
 
-<script src="https://npmcdn.com/marked@0.3.5/marked.min.js"></script>
+<script src="https://unpkg.com/marked@0.3.5/marked.min.js"></script>
 
 <script src="ContentFul.js"></script>
 <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
